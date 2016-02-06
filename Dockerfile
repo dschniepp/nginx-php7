@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER Skiychan <dev@skiy.net>
+MAINTAINER Daniel Schniepp <info@indale.com>
 ##
 # Nginx: 1.9.10
 # PHP  : 7.0.2
@@ -42,7 +42,7 @@ RUN groupadd -r www && \
 
 
 ENV PHP_VERSION 7.0.2
-ENV NGINX_VERSION 1.9.10    
+ENV NGINX_VERSION 1.9.10
 
 #Download nginx & php
 RUN mkdir -p /home/nginx-php && cd $_ && \
@@ -142,7 +142,6 @@ RUN cd / && rm -rf /home/nginx-php
 
 #Create web folder
 VOLUME ["/data/www", "/usr/local/nginx/conf/ssl", "/usr/local/nginx/conf/vhost", "/usr/local/php/etc/php.d"]
-ADD index.php /data/www/index.php
 
 ADD xdebug.ini /usr/local/php/etc/php.d/xdebug.ini
 
